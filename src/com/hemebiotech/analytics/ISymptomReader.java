@@ -1,20 +1,47 @@
 package com.hemebiotech.analytics;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 /**
- * Anything that will read symptom data from a source
- * The important part is, the return value from the operation, which is a list of strings,
- * that may contain many duplications
+ * 	Interface which allows processing from a file
  * 
- * The implementation does not need to order the list
- * 
+ *	@author Rémi ESPIN
  */
+
 public interface ISymptomReader {
+	
 	/**
-	 * If no data is available, return an empty List
+	 * add symptoms in a list from a file
 	 * 
-	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
+	 * @param file with symptoms
+	 *
+	 * @return list of symptoms
+	 *         
+	 * @author Rémi ESPIN
 	 */
-	List<String> GetSymptoms ();
+	List<String> getSymptoms(String fileName);
+
+	/**
+	 * count occurences of symptoms from a list of symptoms
+	 *
+	 * @param list of symptoms
+	 * 
+	 * @return map of iteration of symptoms with their occurences
+	 * 
+	 * @author Rémi ESPIN
+	 */
+	public Map<String, Integer> getSymptomsWithOccurences(List<String> symptoms);
+
+	/**
+	 * write a new file from a map of symptoms
+	 *
+	 * @param map with symptoms and their occurences
+	 * 
+	 * @return file with number of iteration of each symptoms from the map in param
+	 *        
+	 * @author Rémi ESPIN
+	 */
+	void writeSymptomsAndOccurences(Map<String, Integer> mapSymptomsOccurences) throws IOException;
 }
