@@ -34,6 +34,7 @@ public interface ISymptomReader {
 	 */
 	public Map<String, Integer> getSymptomsWithOccurences(List<String> symptoms);
 
+
 	/**
 	 * write a new file from a map of symptoms
 	 *
