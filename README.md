@@ -1,4 +1,4 @@
-Version : 0.0.1
+Version : 0.0.2
 
 ## Titre du projet
 Débugger une application JAVA

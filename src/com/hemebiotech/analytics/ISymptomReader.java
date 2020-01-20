@@ -5,24 +5,26 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Anything that will read symptom data from a source The important part is, the
- * return value from the operation, which is a list of strings, that may contain
- * many duplications
- *
- * The implementation does not need to order the list
- *
+ * 	Interface which allows processing from a file
+ * 
+ *	@author Rémi ESPIN
  */
+
 public interface ISymptomReader {
+	
 	/**
-	 * If no data is available, return an empty List
+	 * add symptoms in a list from a file
+	 * 
+	 * @param file with symptoms
 	 *
-	 * @return a raw listing of all Symptoms obtained from a data source, duplicates
-	 *         are possible/probable
+	 * @return list of symptoms
+	 *         
+	 * @author Rémi ESPIN
 	 */
 	List<String> getSymptoms(String fileName);
 
 	/**
-	 * count occurences of symptoms in a file
+	 * count occurences of symptoms from a list of symptoms
 	 *
 	 * @param list of symptoms
 	 * 
@@ -31,6 +33,7 @@ public interface ISymptomReader {
 	 * @author Rémi ESPIN
 	 */
 	public Map<String, Integer> getSymptomsWithOccurences(List<String> symptoms);
+
 
 	/**
 	 * write a new file from a map of symptoms
